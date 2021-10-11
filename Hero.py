@@ -113,6 +113,8 @@ class Support(Hero):
     def __init__(self, name, position=[0, 0], magic=3):
         Hero.__init__(self, name, position)
         self.magic = magic
+        print("Le héro soigneur {} s'est réveillé, et rejoint la bataille"
+              .format(self.name))
 
     def buff_magic(self, hero):
         if hero.magic > 0:
@@ -135,6 +137,8 @@ class Assassin(Hero):
         self.magic = magic
         self.stealth = stealth
         self.camouflaged = False
+        print("Des profondeurs de la nuit apparait le héros {},pret a rejoindre l'aventure"
+              .format(self.name))
 
     def camouflage(self):
         if not self.camouflaged:
@@ -155,7 +159,7 @@ def fun(a):
 print("choisissez votre classe :")
 
 for x, y in zip(champs, champs_def):
-    print("{0}".format(x), "{:>50}".format(":"), "{1}".format(x, y))
+    print("{0} : {1}".format(x, y))
 
 try:
     entry = str(input("Your choice : "))
