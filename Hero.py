@@ -1,9 +1,5 @@
-champs = ["Tank", "Mage", "Assassin ", "Suppport"]
-champs_def = ["Un guerrier qui n'a pas peur de foncer dans le tas",
-              "Un sorcier qui fait appelle a la magie",
-              "Un expert en furtivité et maitre des dagues",
-              "Un puissant mage qui dédie ses pouvoirs a aider ses alliés"
-              ]
+from roles import champs, champs_def
+import sys
 
 
 class Move:
@@ -100,7 +96,7 @@ class Mage(Hero):
     def __init__(self, name, position=[0, 0], magic=1):
         Hero.__init__(self, name, position)
         self.magic = magic
-        print("Le maitre des flammes {} a décidé de rejoindre"
+        print("Le maitre des flammes {} a décidé de rejoindre "
               "l'aventure !".format(self.name))
 
     def fire_ball(self):
@@ -159,7 +155,7 @@ def fun(a):
 print("choisissez votre classe :")
 
 for x, y in zip(champs, champs_def):
-    print("{0} : {1}".format(x, y))
+    print("{0}".format(x), "{:>50}".format(":"), "{1}".format(x, y))
 
 try:
     entry = str(input("Your choice : "))
@@ -172,10 +168,11 @@ if cap_entry in champs:
     print("Choix confirmé")
 elif cap_entry not in champs:
     print("Il y'a eu une erreur lors de la selection du choix")
-    SystemExit
+    sys.exit()
 
 
 y = str(input("Choose your name : "))
+
 
 if cap_entry == "Tank":
     player = Tank(y)
